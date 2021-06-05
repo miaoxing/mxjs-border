@@ -1,0 +1,80 @@
+@mixin hairline($border-color: #ccc, $border-style: solid, $border-sides: "") {
+  position: relative;
+  border-width: 0 !important;
+  border-color: $border-color;
+  border-style: $border-style;
+
+  &::after {
+    // 去掉默认边框
+    border-width: 0;
+
+    // 按需指定边框
+    @each $side in $border-sides {
+      border-#{if($side == "", "", $side + "-")}width: 1PX;
+    }
+
+    position: absolute;
+    content: " ";
+    pointer-events: none;
+
+    // 使用主元素的边框样式
+    border-color: inherit;
+    border-style: inherit;
+    // NOTE: 圆角会缩放为 1/2
+    border-radius: inherit;
+    transform: scale(1);
+
+    // 不处理 3 倍像素比
+    // 测试发现 3 倍像素比时，线条出现粗细不一的情况
+    @media (-webkit-min-device-pixel-ratio: 2) {
+      // 先缩小到一半
+      transform: scale(0.5);
+      // 再拉伸到原来大小
+      top: -50%;
+      right: -50%;
+      bottom: -50%;
+      left: -50%;
+    }
+  }
+}
+
+@mixin hairline-top($border-color: #ccc, $border-style: solid) {
+  @include hairline($border-color, $border-style, "top");
+}
+
+@mixin hairline-right($border-color: #ccc, $border-style: solid) {
+  @include hairline($border-color, $border-style, "right");
+}
+
+@mixin hairline-bottom($border-color: #ccc, $border-style: solid) {
+  @include hairline($border-color, $border-style, "bottom");
+}
+
+@mixin hairline-left($border-color: #ccc, $border-style: solid) {
+  @include hairline($border-color, $border-style, "left");
+}
+
+@mixin hairline-x($border-color: #ccc, $border-style: solid) {
+  @include hairline($border-color, $border-style, ("left", "right"));
+}
+
+@mixin hairline-y($border-color: #ccc, $border-style: solid) {
+  @include hairline($border-color, $border-style, ("top", "bottom"));
+}
+
+@mixin hairline-0($no-radius: false) {
+  // TODO 是否需要？
+  //border-width: 0;
+
+  @if $no-radius == true {
+    border-radius: 0;
+  }
+
+  &::after {
+    border-width: 0;
+
+    @if $no-radius == true {
+      border-radius: 0;
+    }
+  }
+}

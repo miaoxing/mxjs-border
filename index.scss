@@ -1,0 +1,35 @@
+$border-color: #ccc !default;
+
+@import "mixins/hairline";
+
+.border {
+  @include hairline($border-color);
+
+  &-t {
+    @include hairline-top($border-color);
+  }
+
+  &-r {
+    @include hairline-right($border-color);
+  }
+
+  &-b {
+    @include hairline-bottom($border-color);
+  }
+
+  &-l {
+    @include hairline-left($border-color);
+  }
+
+  &-x {
+    @include hairline-x($border-color);
+  }
+
+  &-y {
+    @include hairline-y($border-color);
+  }
+
+  &-0 {
+    @include hairline-0();
+  }
+}
