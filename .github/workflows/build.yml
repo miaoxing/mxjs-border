@@ -51,16 +51,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel: true
 
-  coveralls-finish:
-    needs: [ jest ]
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.github_token }}
-          parallel-finished: true
-
   eslint:
     runs-on: ubuntu-latest
     strategy:
