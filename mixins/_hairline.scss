@@ -1,3 +1,9 @@
+/**
+ * 方案1：缩小后再拉伸到原来大小
+ *
+ * 优点：支持所有边框
+ * 缺点：overflow:hidden 可能挡住右边和下边边框，可需调整外边距或位置解决
+ */
 @mixin hairline($border-color: #ccc, $border-style: solid, $border-sides: "") {
   position: relative;
   border-width: 0 !important;
@@ -77,4 +83,73 @@
       border-radius: 0;
     }
   }
+}
+
+/**
+ * 方案2，缩小后，指定四边的位置实现
+ *
+ * 优点：不受 overflow:hidden 影响
+ * 缺点：最多支持两条边
+ * @todo dpr 处理
+ */
+
+$sides: top, right, bottom, left;
+$reverseSides: (top: bottom, right: left, bottom: top, left: right);
+$xy: (top: Y, right: X, bottom: Y, left: X);
+
+@mixin hairline2-pseudo($type: 'after', $border-side) {
+  &::#{$type} {
+    position: absolute;
+    content: " ";
+    pointer-events: none;
+    transform: scale#{map-get($xy, $border-side)}(0.5);
+
+    $reverseSide: map-get($reverseSides, $border-side);
+    @each $side in $sides {
+      @if ($side != $reverseSide) {
+        // 相反方向不用设置位置
+        #{$side}: 0;
+      }
+    }
+
+    border-color: inherit;
+    // NOTE: 小程序不能使用 border-style, 需明确指定 border-xxx-style，否则边框变粗
+    border-#{$border-side}-style: inherit;
+    border-#{$border-side}-width: 1PX;
+  }
+}
+
+@mixin hairline2($border-color, $border-style, $border-side) {
+  position: relative;
+  border-width: 0 !important;
+  border-color: $border-color;
+  border-style: $border-style;
+
+  @include hairline2-pseudo("after", $border-side);
+}
+
+@mixin hairline2-top($border-color: #ccc, $border-style: solid) {
+  @include hairline2($border-color, $border-style, "top");
+}
+
+@mixin hairline2-right($border-color: #ccc, $border-style: solid) {
+  @include hairline2($border-color, $border-style, "right");
+}
+
+@mixin hairline2-bottom($border-color: #ccc, $border-style: solid) {
+  @include hairline2($border-color, $border-style, "bottom");
+}
+
+@mixin hairline2-left($border-color: #ccc, $border-style: solid) {
+  @include hairline2($border-color, $border-style, "left");
+}
+
+@mixin hairline2-x($border-color: #ccc, $border-style: solid) {
+  @include hairline2($border-color, $border-style, "right");
+  @include hairline2-pseudo("before", "left");
+}
+
+@mixin hairline2-y($border-color: #ccc, $border-style: solid) {
+  @include hairline2($border-color, $border-style, "bottom");
+  @include hairline2-pseudo("before", "top");
 }
