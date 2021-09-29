@@ -95,7 +95,7 @@
 
 $sides: top, right, bottom, left;
 $reverseSides: (top: bottom, right: left, bottom: top, left: right);
-$xy: (top: Y, right: X, bottom: Y, left: X);
+$xy: (top: "Y", right: "X", bottom: "Y", left: "X");
 
 @mixin hairline2-pseudo($type: 'after', $border-side) {
   &::#{$type} {
@@ -105,6 +105,7 @@ $xy: (top: Y, right: X, bottom: Y, left: X);
     transform: scale#{map-get($xy, $border-side)}(0.5);
 
     $reverseSide: map-get($reverseSides, $border-side);
+
     @each $side in $sides {
       @if ($side != $reverseSide) {
         // 相反方向不用设置位置
