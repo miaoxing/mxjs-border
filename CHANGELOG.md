@@ -1,3 +1,19 @@
+## [0.1.1](https://github.com/miaoxing/mxjs-border/compare/v0.1.0...v0.1.1) (2021-10-28)
+
+
+### Features
+
+* **border:** 增加 hairline 新方案 ([fb790ed](https://github.com/miaoxing/mxjs-border/commit/fb790edcdbd8199328dc48337cdb9150b1a320b5))
+* **border:** 增加边框相关类 ([7d5c81b](https://github.com/miaoxing/mxjs-border/commit/7d5c81b2f513addaeb0c59bb867652d765dc1b1f))
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/dev:** upgrade from `7.0.1` to `8.0.0`
+
 # 0.1.0 (2021-06-21)
 
 
