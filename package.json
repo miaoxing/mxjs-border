@@ -1,6 +1,6 @@
 {
   "name": "@mxjs/border",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "MIT",
   "engines": {
     "node": ">=12.10.0"
@@ -17,7 +17,7 @@
     "sass": "^1.42.1"
   },
   "devDependencies": {
-    "@miaoxing/dev": "^8.0.1"
+    "@miaoxing/dev": "^8.1.0"
   },
   "ciDependencies": {
     "babel-preset-miaoxing": "miaoxing/babel-preset-miaoxing",

@@ -1,3 +1,23 @@
+# [0.2.0](https://github.com/miaoxing/mxjs-border/compare/v0.1.2...v0.2.0) (2022-02-05)
+
+
+### Bug Fixes
+
+* 指定 node >=12.10.0 ([862bb28](https://github.com/miaoxing/mxjs-border/commit/862bb286fc05c8d870ea52c64009b28ffa2fcb5c))
+
+
+### BREAKING CHANGES
+
+* 指定 node >=12.10.0
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/dev:** upgrade from `8.0.1` to `8.1.0`
+
 ## [0.1.2](https://github.com/miaoxing/mxjs-border/compare/v0.1.1...v0.1.2) (2022-01-12)
 
 
