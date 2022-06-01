@@ -1,3 +1,13 @@
+## [0.2.1](https://github.com/miaoxing/mxjs-border/compare/v0.2.0...v0.2.1) (2022-06-01)
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/dev:** upgrade from `8.1.0` to `8.1.1`
+
 # [0.2.0](https://github.com/miaoxing/mxjs-border/compare/v0.1.2...v0.2.0) (2022-02-05)
 
 
