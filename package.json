@@ -1,6 +1,6 @@
 {
   "name": "@mxjs/border",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "license": "MIT",
   "engines": {
     "node": ">=12.10.0"
