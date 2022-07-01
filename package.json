@@ -17,7 +17,7 @@
     "sass": "^1.42.1"
   },
   "devDependencies": {
-    "@miaoxing/dev": "^8.1.1"
+    "@miaoxing/dev": "^8.1.2"
   },
   "ciDependencies": {
     "babel-preset-miaoxing": "miaoxing/babel-preset-miaoxing",
